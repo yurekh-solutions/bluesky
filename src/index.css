@@ -1,0 +1,131 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Blue Sky Dental Care - Dark Theme Design System */
+@layer base {
+  :root {
+    /* Dark Theme Base Colors */
+    --background: 216 30% 8%;  /* #161e2c */
+    --foreground: 210 40% 98%;
+    --glass-bg: 216 30% 8% / 0.1;
+    --glass-border: 216 30% 35% / 0.2;
+    
+    /* Dental Blue Palette */
+    --primary: 218 100% 60%; /* Blue Sky Blue */
+    --primary-foreground: 216 30% 8%;
+    --primary-glow: 218 100% 70%;
+    --primary-dark: 224 76% 48%;
+    
+    /* Cards & Glass Morphism */
+    --card: 216 30% 12% / 0.8;
+    --card-foreground: 210 40% 98%;
+    --card-border: 216 30% 25% / 0.3;
+    
+    /* Interactive Elements */
+    --secondary: 216 30% 15%;
+    --secondary-foreground: 210 40% 98%;
+    --accent: 197 100% 60%; /* Light Blue */
+    --accent-foreground: 216 30% 8%;
+    
+    /* Status Colors */
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 210 40% 98%;
+    --success: 142 76% 36%;
+    --success-foreground: 210 40% 98%;
+    
+    /* Borders & Inputs */
+    --border: 216 30% 25% / 0.3;
+    --input: 216 30% 15% / 0.8;
+    --ring: 218 100% 60%;
+    
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--primary-glow)));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--background)) 0%, hsl(216 30% 12%) 100%);
+    --gradient-glass: linear-gradient(135deg, hsl(216 30% 15% / 0.1), hsl(216 30% 25% / 0.1));
+    
+    /* Shadows & Effects */
+    --shadow-glass: 0 8px 32px 0 hsl(216 30% 8% / 0.37);
+    --shadow-glow: 0 0 50px hsl(var(--primary) / 0.3);
+    --shadow-primary: 0 10px 30px -10px hsl(var(--primary) / 0.4);
+    
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    
+    --radius: 1rem;
+  }
+}
+
+/* Custom Animations */
+@keyframes twinkle {
+  0%, 100% { opacity: 0.3; transform: scale(1); }
+  50% { opacity: 1; transform: scale(1.2); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 20px hsl(var(--primary) / 0.3); }
+  50% { box-shadow: 0 0 40px hsl(var(--primary) / 0.6); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(30px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Glass Morphism Components */
+@layer components {
+  .glass {
+    @apply bg-card/80 backdrop-blur-xl border border-card-border shadow-glass;
+  }
+  
+  .glass-button {
+    @apply glass hover:bg-card transition-all duration-300 hover:scale-105 hover:shadow-glow;
+  }
+  
+  .star {
+    @apply absolute w-1 h-1 bg-primary rounded-full;
+    animation: twinkle 3s infinite;
+  }
+  
+  .star-large {
+    @apply absolute w-2 h-2 bg-primary-glow rounded-full;
+    animation: twinkle 4s infinite;
+  }
+  
+  .floating-button {
+    @apply fixed z-50 glass-button p-4 rounded-full shadow-primary;
+    animation: float 3s ease-in-out infinite;
+  }
+  
+  .hero-3d {
+    @apply relative;
+    transform-style: preserve-3d;
+  }
+  
+  .hero-3d::before {
+    content: '';
+    @apply absolute inset-0 bg-gradient-hero opacity-80 rounded-2xl;
+    transform: translateZ(-1px) scale(1.1);
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
