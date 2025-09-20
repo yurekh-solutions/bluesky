@@ -34,13 +34,17 @@ export const Hero = () => {
           {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-center gap-4 justify-center mb-12">
   <button
-    onClick={() => {
-      console.log('Book Appointment clicked');
-    }}
-    className="w-[250px] px-6 py-2 rounded-full text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-105 transition-all duration-300"
-  >
-    Book Appointment
-  </button>
+  onClick={() => {
+    const appointmentSection = document.getElementById('appointment');
+    if (appointmentSection) {
+      appointmentSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  }}
+  className="w-[250px] px-6 py-2 rounded-full text-base sm:text-lg font-semibold text-white bg-gradient-to-r from-blue-500 to-cyan-500 hover:shadow-xl hover:shadow-cyan-500/50 hover:scale-105 transition-all duration-300"
+>
+  Book Appointment
+</button>
+
   <button
     onClick={() => window.open('tel:+918660335356', '_self')}
     className="w-[250px] px-6 py-2 rounded-full text-base sm:text-lg font-semibold border border-cyan-400 text-cyan-400 hover:bg-cyan-400 hover:text-white hover:shadow-lg transition-all duration-300"
