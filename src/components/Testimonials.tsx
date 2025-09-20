@@ -90,9 +90,9 @@ const Testimonials = () => {
                   <Star key={star} className="w-6 h-6 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <span className="text-2xl font-bold text-foreground">5.0</span>
+              <span className="text-2xl font-bold text-foreground">4.9</span>
             </div>
-            <p className="text-muted-foreground">Based on 266+ patient reviews</p>
+            <p className="text-muted-foreground">Based on 2669+ patient reviews</p>
           </div>
         </motion.div>
 
